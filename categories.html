@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories · Kingdom Pastry Orchard</title>
+  <meta name="description" content="Explore recipe categories at Kingdom Pastry Orchard — from orchard fruit tarts to rustic sourdough & more.">
+  <!-- Premium typography: serif for soul, sans for structure -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300;0,500;0,700;1,300&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & variables : handcrafted palette (same as main) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --cream: #FDF7F0;
+      --dusk: #2E241E;
+      --russet: #A65A3A;
+      --goldenrod: #D49A4A;
+      --sage: #7E8D7A;
+      --moss: #4F5D4A;
+      --fig: #482E2A;
+      --paper: #F9F3EB;
+      --stone: #E5DDD4;
+      --ink: #1F1916;
+      --accent: #C37B4B;
+      --border-soft: #E3D6CA;
+      --shadow-floating: 0 12px 40px -12px rgba(30, 20, 15, 0.12);
+      --shadow-card: 0 8px 24px -8px rgba(30, 20, 15, 0.08);
+      --radius-petal: 40px 12px 40px 12px;
+      --radius-leaf: 20px 40px 20px 40px;
+      --font-serif: 'Petrona', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 0 1.2rem;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    a {
+      color: var(--russet);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    a:hover {
+      color: var(--fig);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-leaf);
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    /* ----- brand identity (same) ----- */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--dusk);
+    }
+    .brand-icon {
+      display: inline-block;
+      background: var(--russet);
+      color: var(--cream);
+      width: 48px;
+      height: 48px;
+      border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+      text-align: center;
+      line-height: 48px;
+      font-size: 1.4rem;
+      margin-right: 0.2rem;
+      transform: rotate(-3deg);
+      box-shadow: 0 6px 12px rgba(166, 90, 58, 0.2);
+    }
+    /* ----- navigation (same as home) ----- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0 0.8rem;
+      border-bottom: 1px solid var(--border-soft);
+      flex-wrap: wrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .nav-links a {
+      position: relative;
+      padding: 0.2rem 0;
+      color: var(--dusk);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--goldenrod);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-links a.active-link {
+      color: var(--russet);
+      font-weight: 500;
+    }
+    .nav-links a.active-link::after {
+      width: 100%;
+      background: var(--russet);
+    }
+    .nav-actions {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+    .btn-outline {
+      border: 1px solid var(--dusk);
+      padding: 0.4rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: var(--dusk);
+      color: var(--cream);
+      border-color: var(--dusk);
+    }
+    /* ----- CATEGORIES PAGE: orchard grid ----- */
+    .categories-hero {
+      margin: 3.5rem 0 2rem;
+    }
+    .categories-hero .pre-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .categories-hero h1 {
+      font-size: 3.6rem;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+      color: var(--dusk);
+    }
+    .categories-hero p {
+      font-size: 1.2rem;
+      color: var(--fig);
+      max-width: 720px;
+      border-left: 4px solid var(--goldenrod);
+      padding-left: 1.5rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.2rem;
+      margin: 3rem 0 4rem;
+    }
+    .category-card {
+      background: var(--paper);
+      padding: 1.8rem 1.8rem 2.2rem;
+      border-radius: var(--radius-leaf);
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s ease;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+    }
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-floating);
+      border-color: var(--goldenrod);
+    }
+    .category-icon {
+      font-size: 2.8rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .category-card h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+      margin-bottom: 0.25rem;
+      color: var(--dusk);
+    }
+    .category-card .sub-cat {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--sage);
+      margin-bottom: 0.5rem;
+    }
+    .category-card p {
+      color: var(--fig);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .category-tag {
+      display: inline-block;
+      background: var(--cream);
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--russet);
+      border: 1px solid var(--border-soft);
+      align-self: flex-start;
+      letter-spacing: 0.02em;
+    }
+    .category-tag i {
+      font-style: normal;
+      margin-right: 4px;
+    }
+
+    /* additional info box */
+    .category-note {
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 30px 8px 30px 8px;
+      border-left: 6px solid var(--goldenrod);
+      margin: 1.5rem 0 3.5rem;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .category-note p {
+      margin-bottom: 0;
+      color: var(--fig);
+    }
+    .category-note .btn-outline {
+      border-color: var(--russet);
+      color: var(--russet);
+      font-weight: 500;
+    }
+    .category-note .btn-outline:hover {
+      background: var(--russet);
+      color: white;
+    }
+    /* footer (same) */
+    footer {
+      margin-top: 2rem;
+      padding: 3rem 0 2rem;
+      border-top: 2px solid var(--stone);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      background: var(--paper);
+      border-radius: 40px 40px 0 0;
+      padding: 3rem 3rem 2rem;
+    }
+    footer .brand {
+      font-size: 1.6rem;
+    }
+    footer .footer-col h5 {
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+    }
+    footer .footer-col a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--fig);
+      font-weight: 300;
+    }
+    footer .footer-col a:hover {
+      color: var(--russet);
+    }
+    /* responsive */
+    @media (max-width: 900px) {
+      .category-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+      footer { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; flex-wrap: wrap; }
+      footer { grid-template-columns: 1fr; }
+      .categories-hero h1 { font-size: 2.6rem; }
+      .category-note { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+    /* animation */
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(14px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- navigation (same as homepage) -->
+  <nav>
+    <div class="brand">
+      <span class="brand-icon">🌳</span>
+      Kingdom Pastry Orchard
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html" class="active-link">Categories</a>
+      <a href="disclamier.html">Disclaimer</a>
+    </div>
+  </nav>
+
+  <!-- CATEGORIES HERO -->
+  <section class="categories-hero fade-up">
+    <div class="pre-title">🍂 Orchard kitchen map</div>
+    <h1>Recipe Categories</h1>
+    <p>Wander through our orchard — from flaky tartes to slow‑fermented loaves. Each category holds a harvest of tested recipes.</p>
+  </section>
+
+  <!-- CATEGORY GRID -->
+  <div class="category-grid fade-up delay-1">
+    <!-- Card 1 -->
+    <div class="category-card">
+      <div class="category-icon">🥧</div>
+      <h3>Orchard Tarts</h3>
+      <div class="sub-cat">fruit · custard · frangipane</div>
+      <p>Buttery crusts cradling seasonal fruit — apples, pears, plums, and berries. Both galettes and classic tartes.</p>
+      <span class="category-tag"><i>🍎</i> 18 recipes</span>
+    </div>
+    <!-- Card 2 -->
+    <div class="category-card">
+      <div class="category-icon">🍞</div>
+      <h3>Rustic Sourdough</h3>
+      <div class="sub-cat">wild yeast · hearth loaves</div>
+      <p>Naturally leavened breads with crisp crusts and open crumb. Rye, spelt, and heritage wheat variations.</p>
+      <span class="category-tag"><i>🌾</i> 12 recipes</span>
+    </div>
+    <!-- Card 3 -->
+    <div class="category-card">
+      <div class="category-icon">🍪</div>
+      <h3>Pastry & Biscuits</h3>
+      <div class="sub-cat">shortbread · scones · cookies</div>
+      <p>Buttery, crumbly, and tender. Perfect for afternoon tea or a rustic picnic beneath the apple trees.</p>
+      <span class="category-tag"><i>🧈</i> 9 recipes</span>
+    </div>
+    <!-- Card 4 -->
+    <div class="category-card">
+      <div class="category-icon">🍯</div>
+      <h3>Honey & Spice</h3>
+      <div class="sub-cat">gingerbread · clove · cardamom</div>
+      <p>Warm, aromatic bakes sweetened with orchard honey and spiced with cinnamon, nutmeg, and star anise.</p>
+      <span class="category-tag"><i>✨</i> 7 recipes</span>
+    </div>
+    <!-- Card 5 -->
+    <div class="category-card">
+      <div class="category-icon">🥐</div>
+      <h3>Viennoiserie</h3>
+      <div class="sub-cat">croissants · brioche · danish</div>
+      <p>Laminated and enriched doughs — from classic pain au chocolat to fruit‑filled danish pastries.</p>
+      <span class="category-tag"><i>🧇</i> 6 recipes</span>
+    </div>
+    <!-- Card 6 -->
+    <div class="category-card">
+      <div class="category-icon">🍰</div>
+      <h3>Gateaux & Tortes</h3>
+      <div class="sub-cat">layer cakes · flourless · mousses</div>
+      <p>Celebration cakes with orchard fruit, ganache, and delicate buttercreams. For birthdays and quiet Sundays.</p>
+      <span class="category-tag"><i>🎂</i> 11 recipes</span>
+    </div>
+    <!-- Card 7 -->
+    <div class="category-card">
+      <div class="category-icon">🥄</div>
+      <h3>Puddings & Custards</h3>
+      <div class="sub-cat">clafoutis · pots de crème · rice</div>
+      <p>Silky, comforting desserts — baked and stirred custards, fruit cobblers, and old‑fashioned puddings.</p>
+      <span class="category-tag"><i>🍮</i> 8 recipes</span>
+    </div>
+    <!-- Card 8 -->
+    <div class="category-card">
+      <div class="category-icon">🍂</div>
+      <h3>Preserves & Fillings</h3>
+      <div class="sub-cat">jams · curds · compotes</div>
+      <p>Orchard fruit preserved in jars. Also: pastry creams, frangipane, and fillings for tarts & cakes.</p>
+      <span class="category-tag"><i>🫙</i> 14 recipes</span>
+    </div>
+  </div>
+
+  <!-- extra note (same style as highlight-box) -->
+  <div class="category-note fade-up delay-2">
+    <p><strong>🍏 Seasonal rotation:</strong> Our categories shift with the orchard — check back for new recipes every harvest.</p>
+    <a href="#" class="btn-outline" style="padding:0.5rem 1.8rem;">View all recipes</a>
+  </div>
+
+  <!-- FOOTER (same as homepage) -->
+  <footer>
+    <div>
+      <div class="brand"><span class="brand-icon">🍂</span> Kingdom Pastry Orchard</div>
+      <p style="max-width:260px; margin-top:0.8rem; color:var(--fig);">A wild orchard kitchen where fruit, flour, and fire converge. Since 2020.</p>
+      <p style="font-size:0.8rem; color:var(--sage);">© 2026 · All rights reserved.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Authors</a>
+      <a href="#">Archive</a>
+    </div>
+    <div class="footer-col">
+      <h5>Information</h5>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Editorial Policy</a>
+      <a href="#">Resources</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

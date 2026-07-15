@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookies Policy · Kingdom Pastry Orchard</title>
+  <meta name="description" content="How Kingdom Pastry Orchard uses cookies — transparent, minimal, and always with your consent.">
+  <!-- Premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300;0,500;0,700;1,300&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & variables : same handcrafted palette ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --cream: #FDF7F0;
+      --dusk: #2E241E;
+      --russet: #A65A3A;
+      --goldenrod: #D49A4A;
+      --sage: #7E8D7A;
+      --moss: #4F5D4A;
+      --fig: #482E2A;
+      --paper: #F9F3EB;
+      --stone: #E5DDD4;
+      --ink: #1F1916;
+      --accent: #C37B4B;
+      --border-soft: #E3D6CA;
+      --shadow-floating: 0 12px 40px -12px rgba(30, 20, 15, 0.12);
+      --shadow-card: 0 8px 24px -8px rgba(30, 20, 15, 0.08);
+      --radius-petal: 40px 12px 40px 12px;
+      --radius-leaf: 20px 40px 20px 40px;
+      --font-serif: 'Petrona', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 0 1.2rem;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    a {
+      color: var(--russet);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    a:hover {
+      color: var(--fig);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-leaf);
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    /* ----- brand identity (same as index) ----- */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--dusk);
+    }
+    .brand-icon {
+      display: inline-block;
+      background: var(--russet);
+      color: var(--cream);
+      width: 48px;
+      height: 48px;
+      border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+      text-align: center;
+      line-height: 48px;
+      font-size: 1.4rem;
+      margin-right: 0.2rem;
+      transform: rotate(-3deg);
+      box-shadow: 0 6px 12px rgba(166, 90, 58, 0.2);
+    }
+    /* ----- navigation (identical) ----- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0 0.8rem;
+      border-bottom: 1px solid var(--border-soft);
+      flex-wrap: wrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      position: relative;
+      padding: 0.2rem 0;
+      color: var(--dusk);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--goldenrod);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    /* ----- COOKIES PAGE UNIQUE LAYOUT ----- */
+    .cookies-header {
+      margin: 3rem 0 1.5rem;
+    }
+    .cookies-header h1 {
+      font-size: 3.8rem;
+      font-weight: 600;
+      color: var(--dusk);
+      line-height: 1.1;
+    }
+    .cookies-header p {
+      font-size: 1.2rem;
+      color: var(--fig);
+      max-width: 700px;
+      border-left: 4px solid var(--goldenrod);
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .cookies-card {
+      background: white;
+      padding: 2.8rem 3.2rem;
+      border-radius: var(--radius-petal);
+      box-shadow: var(--shadow-floating);
+      border: 1px solid var(--border-soft);
+      margin: 2rem 0 3rem;
+    }
+    .cookies-card h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid var(--goldenrod);
+      padding-bottom: 0.6rem;
+      display: inline-block;
+      margin-bottom: 1.8rem;
+    }
+    .cookies-card h3 {
+      font-size: 1.6rem;
+      margin-top: 2.2rem;
+      margin-bottom: 0.25rem;
+      color: var(--dusk);
+    }
+    .cookies-card p {
+      margin-bottom: 1rem;
+      color: var(--fig);
+    }
+    .cookies-card ul {
+      margin: 0.5rem 0 1.2rem 1.8rem;
+      list-style: square;
+      color: var(--fig);
+    }
+    .cookies-card ul li {
+      margin-bottom: 0.4rem;
+    }
+    .cookies-card .highlight-box {
+      background: var(--paper);
+      padding: 1.5rem 2rem;
+      border-radius: var(--radius-leaf);
+      border-left: 6px solid var(--goldenrod);
+      margin: 1.8rem 0;
+    }
+    .cookies-card .highlight-box strong {
+      color: var(--dusk);
+    }
+    .badge-date {
+      display: inline-block;
+      background: var(--stone);
+      padding: 0.2rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--fig);
+      margin-bottom: 1.2rem;
+    }
+    /* cookie table */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .cookie-table th {
+      background: var(--stone);
+      color: var(--dusk);
+      font-weight: 600;
+      text-align: left;
+      padding: 0.8rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .cookie-table td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-soft);
+      background: white;
+    }
+    .cookie-table tr:last-child td {
+      border-bottom: none;
+    }
+    .cookie-table td:first-child {
+      font-weight: 500;
+      color: var(--dusk);
+    }
+    @media (max-width: 600px) {
+      .cookie-table, .cookie-table tbody, .cookie-table tr, .cookie-table td, .cookie-table th {
+        display: block;
+        width: 100%;
+      }
+      .cookie-table tr {
+        margin-bottom: 0.8rem;
+        border: 1px solid var(--border-soft);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .cookie-table th {
+        display: none;
+      }
+      .cookie-table td {
+        border-bottom: 1px solid var(--border-soft);
+        padding: 0.6rem 1rem;
+        background: white;
+      }
+      .cookie-table td:last-child {
+        border-bottom: none;
+      }
+      .cookie-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: inline-block;
+        width: 100px;
+        color: var(--dusk);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+    }
+    /* ----- FOOTER (same as index) ----- */
+    footer {
+      margin-top: 5rem;
+      padding: 3rem 0 2rem;
+      border-top: 2px solid var(--stone);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      background: var(--paper);
+      border-radius: 40px 40px 0 0;
+      padding: 3rem 3rem 2rem;
+    }
+    footer .brand {
+      font-size: 1.6rem;
+    }
+    footer .footer-col h5 {
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+    }
+    footer .footer-col a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--fig);
+      font-weight: 300;
+    }
+    footer .footer-col a:hover {
+      color: var(--russet);
+    }
+    /* responsive */
+    @media (max-width: 900px) {
+      footer { grid-template-columns: 1fr 1fr; }
+      .cookies-header h1 { font-size: 2.8rem; }
+      .cookies-card { padding: 1.8rem; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; }
+      footer { grid-template-columns: 1fr; }
+      .cookies-card { padding: 1.2rem; }
+    }
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(14px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- navigation (identical to index) -->
+  <nav>
+    <div class="brand">
+      <span class="brand-icon">🌳</span>
+      Kingdom Pastry Orchard
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+      <li><a href="categories.html">CATEGORIES</a></li>
+      <li><a href="disclamier.html">DISCLAMIER</a></li>
+    </ul>
+  </nav>
+
+  <!-- COOKIES PAGE CONTENT -->
+  <section class="cookies-header fade-up">
+    <h1>Cookies Policy</h1>
+    <p>Like a perfect shortbread, our cookies are simple, transparent, and made to enhance your experience — never to crumble your privacy.</p>
+  </section>
+
+  <div class="cookies-card fade-up delay-1">
+    <span class="badge-date">🍪 Last updated: 15 July 2026</span>
+    
+    <h2>Our cookie philosophy</h2>
+    <p>At Kingdom Pastry Orchard, we use cookies with the same care we use when selecting heirloom apples. This policy explains what cookies are, how we use them, and how you can manage them. We keep things minimal and respectful.</p>
+    
+    <div class="highlight-box">
+      <strong>🍂 The short version:</strong> We only use essential and analytics cookies. No tracking for advertising, no selling of data. You can disable cookies anytime in your browser settings.
+    </div>
+
+    <h3>What are cookies?</h3>
+    <p>Cookies are small text files placed on your device when you visit a website. They help us remember your preferences, understand how you interact with our content, and ensure the site works properly. Think of them as tiny orchard keepers — they help us tend to your experience.</p>
+
+    <h3>How we use cookies</h3>
+    <p>We use cookies exclusively for the following purposes:</p>
+    <ul>
+      <li><strong>Essential:</strong> to keep the website secure and functional (e.g., session management).</li>
+      <li><strong>Analytics:</strong> to understand which pages are most popular and how visitors navigate the orchard. We use aggregated, anonymized data.</li>
+      <li><strong>Preferences:</strong> to remember your settings (e.g., dark mode preference, if implemented).</li>
+    </ul>
+    <p>We do not use cookies for advertising, remarketing, or any form of cross-site tracking.</p>
+
+    <h3>Cookies we use</h3>
+    <p>Below is a clear list of the cookies we set and what they do. We believe in full transparency.</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Purpose</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Name">session_id</td>
+          <td data-label="Type">Essential</td>
+          <td data-label="Purpose">Maintains your session while you browse the site.</td>
+          <td data-label="Duration">Session</td>
+        </tr>
+        <tr>
+          <td data-label="Name">preferences</td>
+          <td data-label="Type">Preference</td>
+          <td data-label="Purpose">Stores your preferred language or display settings.</td>
+          <td data-label="Duration">1 year</td>
+        </tr>
+        <tr>
+          <td data-label="Name">analytics_visitor</td>
+          <td data-label="Type">Analytics</td>
+          <td data-label="Purpose">Helps us count visits and traffic sources (anonymized).</td>
+          <td data-label="Duration">2 years</td>
+        </tr>
+        <tr>
+          <td data-label="Name">cookie_consent</td>
+          <td data-label="Type">Essential</td>
+          <td data-label="Purpose">Remembers your cookie preference (to avoid showing the banner again).</td>
+          <td data-label="Duration">1 year</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Manage your cookies</h3>
+    <p>You are in control. Most browsers allow you to block or delete cookies. Please note that disabling essential cookies may affect the functionality of the website. You can adjust your preferences at any time in your browser settings.</p>
+    <ul>
+      <li><strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data.</li>
+      <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies and Site Data.</li>
+      <li><strong>Safari:</strong> Preferences → Privacy → Cookies and website data.</li>
+      <li><strong>Edge:</strong> Settings → Cookies and site permissions → Manage and delete cookies.</li>
+    </ul>
+
+    <h3>Third-party services</h3>
+    <p>We do not use third-party advertising cookies. Our analytics are powered by a privacy-first service that does not collect IP addresses or personal identifiers. We never share your data with advertisers.</p>
+
+    <h3>Updates to this policy</h3>
+    <p>We may update this Cookies Policy occasionally to reflect changes in technology or regulation. Any updates will be posted here with a revised date. We encourage you to review it periodically.</p>
+
+    <div class="highlight-box" style="margin-top:2rem;">
+      <strong>📬 Questions about cookies?</strong> We’re happy to help. Reach us at <a href="mailto:privacy@kingdompastryorchard.com">privacy@kingdompastryorchard.com</a> or via our <a href="contact.html">contact page</a>.
+    </div>
+  </div>
+
+  <!-- FOOTER : identical to index, with legal and explore -->
+  <footer>
+    <div>
+      <div class="brand"><span class="brand-icon">🍂</span> Kingdom Pastry Orchard</div>
+      <p style="max-width:260px; margin-top:0.8rem; color:var(--fig);">A wild orchard kitchen where fruit, flour, and fire converge. Since 2020.</p>
+      <p style="font-size:0.8rem; color:var(--sage);">© 2026 · All rights reserved.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Authors</a>
+      <a href="#">Archive</a>
+    </div>
+    <div class="footer-col">
+      <h5>Information</h5>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Editorial Policy</a>
+      <a href="#">Resources</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

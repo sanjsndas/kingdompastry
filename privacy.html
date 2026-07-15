@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy · Kingdom Pastry Orchard</title>
+  <meta name="description" content="How Kingdom Pastry Orchard handles your data — we believe in transparency, orchard ethics, and keeping your information safe.">
+  <!-- Premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300;0,500;0,700;1,300&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & variables : same handcrafted palette ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --cream: #FDF7F0;
+      --dusk: #2E241E;
+      --russet: #A65A3A;
+      --goldenrod: #D49A4A;
+      --sage: #7E8D7A;
+      --moss: #4F5D4A;
+      --fig: #482E2A;
+      --paper: #F9F3EB;
+      --stone: #E5DDD4;
+      --ink: #1F1916;
+      --accent: #C37B4B;
+      --border-soft: #E3D6CA;
+      --shadow-floating: 0 12px 40px -12px rgba(30, 20, 15, 0.12);
+      --shadow-card: 0 8px 24px -8px rgba(30, 20, 15, 0.08);
+      --radius-petal: 40px 12px 40px 12px;
+      --radius-leaf: 20px 40px 20px 40px;
+      --font-serif: 'Petrona', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 0 1.2rem;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    a {
+      color: var(--russet);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    a:hover {
+      color: var(--fig);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-leaf);
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    /* ----- brand identity (same as index) ----- */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--dusk);
+    }
+    .brand-icon {
+      display: inline-block;
+      background: var(--russet);
+      color: var(--cream);
+      width: 48px;
+      height: 48px;
+      border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+      text-align: center;
+      line-height: 48px;
+      font-size: 1.4rem;
+      margin-right: 0.2rem;
+      transform: rotate(-3deg);
+      box-shadow: 0 6px 12px rgba(166, 90, 58, 0.2);
+    }
+    /* ----- navigation (identical) ----- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0 0.8rem;
+      border-bottom: 1px solid var(--border-soft);
+      flex-wrap: wrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      position: relative;
+      padding: 0.2rem 0;
+      color: var(--dusk);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--goldenrod);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    /* ----- PRIVACY PAGE UNIQUE LAYOUT ----- */
+    .privacy-header {
+      margin: 3rem 0 1.5rem;
+    }
+    .privacy-header h1 {
+      font-size: 3.8rem;
+      font-weight: 600;
+      color: var(--dusk);
+      line-height: 1.1;
+    }
+    .privacy-header p {
+      font-size: 1.2rem;
+      color: var(--fig);
+      max-width: 700px;
+      border-left: 4px solid var(--goldenrod);
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .privacy-card {
+      background: white;
+      padding: 2.8rem 3.2rem;
+      border-radius: var(--radius-petal);
+      box-shadow: var(--shadow-floating);
+      border: 1px solid var(--border-soft);
+      margin: 2rem 0 3rem;
+    }
+    .privacy-card h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid var(--goldenrod);
+      padding-bottom: 0.6rem;
+      display: inline-block;
+      margin-bottom: 1.8rem;
+    }
+    .privacy-card h3 {
+      font-size: 1.6rem;
+      margin-top: 2.2rem;
+      margin-bottom: 0.25rem;
+      color: var(--dusk);
+    }
+    .privacy-card p {
+      margin-bottom: 1rem;
+      color: var(--fig);
+    }
+    .privacy-card ul {
+      margin: 0.5rem 0 1.2rem 1.8rem;
+      list-style: square;
+      color: var(--fig);
+    }
+    .privacy-card ul li {
+      margin-bottom: 0.4rem;
+    }
+    .privacy-card .highlight-box {
+      background: var(--paper);
+      padding: 1.5rem 2rem;
+      border-radius: var(--radius-leaf);
+      border-left: 6px solid var(--goldenrod);
+      margin: 1.8rem 0;
+    }
+    .privacy-card .highlight-box strong {
+      color: var(--dusk);
+    }
+    .badge-date {
+      display: inline-block;
+      background: var(--stone);
+      padding: 0.2rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--fig);
+      margin-bottom: 1.2rem;
+    }
+    /* ----- FOOTER (same as index) ----- */
+    footer {
+      margin-top: 5rem;
+      padding: 3rem 0 2rem;
+      border-top: 2px solid var(--stone);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      background: var(--paper);
+      border-radius: 40px 40px 0 0;
+      padding: 3rem 3rem 2rem;
+    }
+    footer .brand {
+      font-size: 1.6rem;
+    }
+    footer .footer-col h5 {
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+    }
+    footer .footer-col a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--fig);
+      font-weight: 300;
+    }
+    footer .footer-col a:hover {
+      color: var(--russet);
+    }
+    /* responsive */
+    @media (max-width: 900px) {
+      footer { grid-template-columns: 1fr 1fr; }
+      .privacy-header h1 { font-size: 2.8rem; }
+      .privacy-card { padding: 1.8rem; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; }
+      footer { grid-template-columns: 1fr; }
+      .privacy-card { padding: 1.2rem; }
+    }
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(14px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- navigation (identical to index) -->
+  <nav>
+    <div class="brand">
+      <span class="brand-icon">🌳</span>
+      Kingdom Pastry Orchard
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+      <li><a href="categories.html">CATEGORIES</a></li>
+      <li><a href="disclamier.html">DISCLAMIER</a></li>
+    </ul>
+  </nav>
+
+  <!-- PRIVACY PAGE CONTENT -->
+  <section class="privacy-header fade-up">
+    <h1>Privacy Policy</h1>
+    <p>We treat your data like a heritage apple — with care, respect, and never for purposes beyond the orchard.</p>
+  </section>
+
+  <div class="privacy-card fade-up delay-1">
+    <span class="badge-date">📅 Last updated: 15 July 2026</span>
+    
+    <h2>Our commitment</h2>
+    <p>At Kingdom Pastry Orchard, we believe that privacy is a fundamental right. This policy explains how we collect, use, and safeguard your personal information when you visit our website or interact with us. We are guided by the principles of transparency, minimal data collection, and orchard ethics.</p>
+    
+    <div class="highlight-box">
+      <strong>🍂 The short version:</strong> We only collect what we need to respond to your inquiries or improve our content. We never sell your data, and we use cookies only to enhance your experience. You are always in control.
+    </div>
+
+    <h3>1. Information we collect</h3>
+    <p>We collect minimal information, only when you voluntarily provide it:</p>
+    <ul>
+      <li><strong>Contact form:</strong> name, email address, and any message you send.</li>
+      <li><strong>Newsletter sign-up:</strong> email address (only if you opt in).</li>
+      <li><strong>Cookies:</strong> we use essential cookies for functionality and analytics to understand which pages are most loved by our readers.</li>
+    </ul>
+
+    <h3>2. How we use your data</h3>
+    <ul>
+      <li>To reply to your messages and inquiries.</li>
+      <li>To send occasional updates about orchard events, new recipes, or seasonal stories (only if you have given explicit consent).</li>
+      <li>To improve our website and content based on anonymous analytics.</li>
+    </ul>
+
+    <h3>3. Data storage & security</h3>
+    <p>Your data is stored securely on protected servers. We use industry-standard encryption and regularly review our security practices. We retain your information only for as long as necessary to fulfill the purposes outlined in this policy, or as required by law.</p>
+
+    <h3>4. Your rights</h3>
+    <ul>
+      <li><strong>Access:</strong> you can request a copy of the data we hold about you.</li>
+      <li><strong>Correction:</strong> you can update or correct your information at any time.</li>
+      <li><strong>Deletion:</strong> you can ask us to delete your personal data.</li>
+      <li><strong>Withdraw consent:</strong> you can unsubscribe from our emails at any time.</li>
+    </ul>
+    <p>To exercise any of these rights, simply <a href="contact.html">contact our orchard keepers</a> — we’re here to help.</p>
+
+    <h3>5. Cookies & tracking</h3>
+    <p>We use a minimal set of cookies to ensure the site works properly and to understand how visitors interact with our content. You can manage your cookie preferences in your browser settings. For more details, see our <a href="cookies.html">Cookies Policy</a>.</p>
+
+    <h3>6. Third-party services</h3>
+    <p>We do not share your data with third parties for marketing purposes. We may use trusted services (such as email delivery platforms) that comply with strict data protection standards. All processors are bound by confidentiality agreements.</p>
+
+    <h3>7. Children’s privacy</h3>
+    <p>Our website is not intended for children under 16, and we do not knowingly collect personal data from minors. If you believe we have inadvertently collected such data, please contact us and we will delete it.</p>
+
+    <h3>8. Changes to this policy</h3>
+    <p>We may update this policy from time to time. Any changes will be posted on this page with a revised date. We encourage you to review it periodically.</p>
+
+    <div class="highlight-box" style="margin-top:2rem;">
+      <strong>📬 Questions?</strong> We’re happy to clarify anything. Reach us at <a href="mailto:privacy@kingdompastryorchard.com">privacy@kingdompastryorchard.com</a> or through our <a href="contact.html">contact page</a>.
+    </div>
+  </div>
+
+  <!-- FOOTER : identical to index, with legal and explore -->
+  <footer>
+    <div>
+      <div class="brand"><span class="brand-icon">🍂</span> Kingdom Pastry Orchard</div>
+      <p style="max-width:260px; margin-top:0.8rem; color:var(--fig);">A wild orchard kitchen where fruit, flour, and fire converge. Since 2020.</p>
+      <p style="font-size:0.8rem; color:var(--sage);">© 2026 · All rights reserved.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Authors</a>
+      <a href="#">Archive</a>
+    </div>
+    <div class="footer-col">
+      <h5>Information</h5>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Editorial Policy</a>
+      <a href="#">Resources</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
